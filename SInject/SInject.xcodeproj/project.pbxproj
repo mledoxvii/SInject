@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		8B602C77255BF6DD00C8E242 /* SInject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B602C6D255BF6DC00C8E242 /* SInject.framework */; };
-		8B602C7C255BF6DD00C8E242 /* SInjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B602C7B255BF6DD00C8E242 /* SInjectTests.swift */; };
 		8B602C7E255BF6DD00C8E242 /* SInject.h in Headers */ = {isa = PBXBuildFile; fileRef = 8B602C70255BF6DC00C8E242 /* SInject.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8B602C8A255BF72A00C8E242 /* Injector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B602C89255BF72A00C8E242 /* Injector.swift */; };
 		8BD034FB255D50A900264C4C /* Injectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD034FA255D50A900264C4C /* Injectable.swift */; };
@@ -33,7 +32,6 @@
 		8B602C70255BF6DC00C8E242 /* SInject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SInject.h; sourceTree = "<group>"; };
 		8B602C71255BF6DC00C8E242 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8B602C76255BF6DD00C8E242 /* SInjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SInjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		8B602C7B255BF6DD00C8E242 /* SInjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SInjectTests.swift; sourceTree = "<group>"; };
 		8B602C7D255BF6DD00C8E242 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8B602C89255BF72A00C8E242 /* Injector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Injector.swift; sourceTree = "<group>"; };
 		8BD034FA255D50A900264C4C /* Injectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Injectable.swift; sourceTree = "<group>"; };
@@ -96,10 +94,8 @@
 		8B602C7A255BF6DD00C8E242 /* SInjectTests */ = {
 			isa = PBXGroup;
 			children = (
-				8B602C7B255BF6DD00C8E242 /* SInjectTests.swift */,
 				8B602C7D255BF6DD00C8E242 /* Info.plist */,
 				8BD03551255D7BDE00264C4C /* SInjectorTest.swift */,
-				8B602C7B255BF6DD00C8E242 /* SInjectTests.swift */,
 			);
 			path = SInjectTests;
 			sourceTree = "<group>";
@@ -233,7 +229,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B602C7C255BF6DD00C8E242 /* SInjectTests.swift in Sources */,
 				8BD03552255D7BDE00264C4C /* SInjectorTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
