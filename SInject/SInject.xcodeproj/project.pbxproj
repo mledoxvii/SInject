@@ -15,6 +15,7 @@
 		8BD03546255D780300264C4C /* NoParamsInjectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD03545255D780300264C4C /* NoParamsInjectable.swift */; };
 		8BD0354E255D7B5000264C4C /* SInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD0354D255D7B5000264C4C /* SInjector.swift */; };
 		8BD03552255D7BDE00264C4C /* SInjectorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD03551255D7BDE00264C4C /* SInjectorTest.swift */; };
+		8BD03560255D918A00264C4C /* Registrator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD0355F255D918A00264C4C /* Registrator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +40,7 @@
 		8BD03545255D780300264C4C /* NoParamsInjectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoParamsInjectable.swift; sourceTree = "<group>"; };
 		8BD0354D255D7B5000264C4C /* SInjector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SInjector.swift; sourceTree = "<group>"; };
 		8BD03551255D7BDE00264C4C /* SInjectorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SInjectorTest.swift; sourceTree = "<group>"; };
+		8BD0355F255D918A00264C4C /* Registrator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Registrator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 				8B602C70255BF6DC00C8E242 /* SInject.h */,
 				8B602C71255BF6DC00C8E242 /* Info.plist */,
 				8B602C89255BF72A00C8E242 /* Injector.swift */,
+				8BD0355F255D918A00264C4C /* Registrator.swift */,
 				8BD03501255D515600264C4C /* Resolver.swift */,
 				8BD0354D255D7B5000264C4C /* SInjector.swift */,
 				8BD034F9255D505B00264C4C /* Injectable */,
@@ -219,6 +222,7 @@
 			files = (
 				8BD03502255D515600264C4C /* Resolver.swift in Sources */,
 				8BD034FB255D50A900264C4C /* Injectable.swift in Sources */,
+				8BD03560255D918A00264C4C /* Registrator.swift in Sources */,
 				8B602C8A255BF72A00C8E242 /* Injector.swift in Sources */,
 				8BD0354E255D7B5000264C4C /* SInjector.swift in Sources */,
 				8BD03546255D780300264C4C /* NoParamsInjectable.swift in Sources */,
