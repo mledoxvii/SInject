@@ -8,6 +8,10 @@ open class SInjector: Injector {
 
     public init() {}
 
+    public init(registrators: [Registrator]) {
+        registrators.forEach { $0.registerOn(injector: self) }
+    }
+
     public func register<Params, Element>(
         _ injectable: Injectable<Params, Element>,
         builder: @escaping (Injector, Params) -> Element

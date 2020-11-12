@@ -88,6 +88,21 @@ class SInjectorTest: XCTestCase {
         XCTAssertEqual(expectedDefaultArg, defaultInstance.arg)
         XCTAssertEqual(expectedHelloArg, helloInstance.arg)
     }
+
+    func test_should_resolve_injectables_when_registered_from_provided_registrators() {
+        let expectedClass1Arg: String = ExampleClass1Registrator.ARG
+        let expectedClass2Arg: String = ExampleClass2Registrator.ARG
+        sut = SInjector(registrators: [
+            ExampleClass1Registrator(),
+            ExampleClass2Registrator()
+        ])
+
+        let class1Instance: ExampleClass1 = sut.resolve(ExampleClass1DefaultInjectable().resolver)
+        let class2Instance: ExampleClass2 = sut.resolve(ExampleClass2Injectable().resolver)
+
+        XCTAssertEqual(expectedClass1Arg, class1Instance.arg)
+        XCTAssertEqual(expectedClass2Arg, class2Instance.arg)
+    }
 }
 
 // MARK: - Example Class 1
@@ -103,6 +118,15 @@ class ExampleClass1: NSObject {
 class ExampleClass1DefaultInjectable: NoParamsInjectable<ExampleClass1> {}
 class ExampleClass1HelloInjectable: NoParamsInjectable<ExampleClass1> {}
 
+class ExampleClass1Registrator: Registrator {
+
+    static let ARG: String = "\(ExampleClass1Registrator.self) arg"
+
+    func registerOn(injector: Injector) {
+        injector.register(ExampleClass1DefaultInjectable()) { _, _ in ExampleClass1(arg: Self.ARG) }
+    }
+}
+
 // MARK: - Example Class 2
 
 class ExampleClass2 {
@@ -117,3 +141,17 @@ class ExampleClass2 {
 
 class ExampleClass2Injectable: NoParamsInjectable<ExampleClass2> {}
 class ExampleClass2ArgsInjectable: Injectable<(arg: String, class1: ExampleClass1), ExampleClass2> {}
+
+class ExampleClass2Registrator: Registrator {
+
+    static let ARG: String = "\(ExampleClass2Registrator.self) arg"
+
+    func registerOn(injector: Injector) {
+        injector.register(ExampleClass2Injectable()) { inj, _ in
+            ExampleClass2(
+                arg: Self.ARG,
+                class1: inj.resolve(ExampleClass1DefaultInjectable().resolver)
+            )
+        }
+    }
+}
