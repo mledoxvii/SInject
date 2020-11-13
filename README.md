@@ -116,3 +116,39 @@ Then you have to supply the arguments when resolving the element.
 ```swift
 let myClass: MyClass = injector.resolve(MyClassInjectable().using((arg1: "Arg1", arg2: 2)))
 ```
+
+## Registrators
+
+The `Registrator` protocol is provided to avoid a massive function where all elements are registered to the injector. With it you can separate elements registration in multiple modules like the following.
+
+```swift
+class HomeScreenRegistrator: Registrator {
+
+    func registerOn(injector: Injector) {
+        registerView(injector)
+        registerController(injector)
+        registerRouter(injector)
+    }
+
+    private func registerView(_ injector: Injector) {
+        injector.register(HomeViewInjectable()) { ... }
+    }
+
+    private func registerController(_ injector: Injector) {
+        injector.register(HomeControllerInjectable()) { ... }
+    }
+
+    private func registerRouter(_ injector: Injector) {
+        injector.register(HomeRouterInjectable()) { ... }
+    }
+}
+```
+
+Then you can initialize the app's injector passing in the list of registrators.
+
+```swift
+let injector: Injector = SInjector(registrators: [
+    HomeScreenRegistrator(),
+    ...
+])
+```
