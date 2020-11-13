@@ -89,3 +89,30 @@ let controller: SomeController = SomeController(
 
 controller.onSomeEventTriggered()
 ```
+
+## Runtime Arguments
+
+The injected elements may require arguments that cannot be resolved by the injector, like cases where the argument is calculated at runtime. For these cases you have to specify the arguments type in the _injectable_ using the `Injectable<Params, Element>` class.
+
+```swift
+struct MyClass {
+    let arg1: String
+    let arg2: Int
+}
+
+class MyClassInjectable: Injectable<(arg1: String, arg2: Int), MyClass> {}
+```
+
+The parameters are recieved in the _builder_ closure when registering the _injectable_.
+
+```swift
+injector.register(MyClassInjectable()) { _, params in
+    MyClass(arg1: params.arg1, arg2: params.arg2)
+}
+```
+
+Then you have to supply the arguments when resolving the element.
+
+```swift
+let myClass: MyClass = injector.resolve(MyClassInjectable().using((arg1: "Arg1", arg2: 2)))
+```
