@@ -6,7 +6,8 @@ OUTPUTS_PATH="$REPO_PATH/outputs"
 OUTPUTS_DEVICE_PATH="$OUTPUTS_PATH/iphoneos"
 OUTPUTS_SIMULATOR_PATH="$OUTPUTS_PATH/iphonesimulator"
 FRAMEWORK_NAME="SInject.framework"
-XCFRAMEWORK_PATH="$OUTPUTS_PATH/SInject.xcframework"
+XCFRAMEWORK_NAME="SInject.xcframework"
+XCFRAMEWORK_PATH="$OUTPUTS_PATH/$XCFRAMEWORK_NAME"
 
 echo ">>>>> Cleaning outputs directory"
 rm -rf $OUTPUTS_PATH
@@ -42,4 +43,5 @@ xcodebuild \
     | xcpretty
 
 echo ">>>>> Zipping xcframework"
-zip -r "$XCFRAMEWORK_PATH.zip" $XCFRAMEWORK_PATH
+cd $OUTPUTS_PATH
+zip -r "$XCFRAMEWORK_NAME.zip" $XCFRAMEWORK_NAME
